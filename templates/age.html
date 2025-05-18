@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Visualization</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navigation {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .navigation a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .navigation a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .visualization {
+            width: 100%;
+            min-height: 600px;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .visualization-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .note {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            font-size: 0.9em;
+            color: #6c757d;
+            position: relative;
+        }
+        .note p {
+            margin: 0;
+        }
+        .visualization-title {
+            margin: 20px 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="{{ url_for('home') }}">Home</a>
+    </div>
+    <div class="container">
+        <h1>Age Visualization</h1>
+        
+        <div class="visualization">
+            <div class="visualization-title">Age Distribution</div>
+            <div class="visualization-content">
+                <iframe src="{{ url_for('static', filename='age.html') }}"></iframe>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="visualization-title">Age by Gender</div>
+            <div class="visualization-content">
+                <iframe src="{{ url_for('static', filename='age_gender.html') }}"></iframe>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="visualization-title">Age by Race</div>
+            <div class="visualization-content">
+                <iframe src="{{ url_for('static', filename='age_race.html') }}"></iframe>
+            </div>
+            <div class="note">
+                <p>Respondents could select multiple race categories separated by semicolons. For clarity and simplicity, only the first race category listed by each respondent was used for analysis. This approach may underestimate multiracial identities and is a simplification for presenting aggregate results.</p>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="visualization-title">Age by Postal Code</div>
+            <div class="visualization-content">
+                <iframe src="{{ url_for('static', filename='age_postal.html') }}"></iframe>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="visualization-title">Age by Journey</div>
+            <iframe src="{{ url_for('static', filename='age_journey.html') }}"></iframe>
+        </div>
+
+        <div class="visualization">
+            <div class="visualization-title">Age by Industry</div>
+            <iframe src="{{ url_for('static', filename='age_industry.html') }}"></iframe>
+        </div>
+
+        <div class="visualization">
+            <div class="visualization-title">Age by Investment Distribution</div>
+            <iframe src="{{ url_for('static', filename='age_investment_distribution.html') }}"></iframe>
+        </div>
+    </div>
+</body>
+</html>
